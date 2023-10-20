@@ -1,22 +1,330 @@
-﻿html {
-  font-size: 14px;
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    /* For Layout Purposes */
+    /* outline: dashed 0.5px pink; */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+:root {
+    /* Background Variable */
+    --bg-darker: #141E46;
+    --bg-dark: #C70039;
+    --bg-light: #FF6969;
+    --bg-lighter: #FFF5E0;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    background: url(../images/bg.jpg) center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-darker);
+    color: white;
+    z-index: 10;
 }
 
-body {
-  margin-bottom: 60px;
+    .nav h1 {
+        position: relative;
+        width: 90%;
+        margin: auto;
+        text-align: left;
+        background: #C70039;
+        background: linear-gradient(to top right, #C70039 0%, #FFF5E0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+    .container .content {
+        position: relative;
+        width: 100%;
+    }
+
+        .container .content .home {
+            position: relative;
+            width: 100%;
+            padding-bottom: 40px;
+        }
+
+            .container .content .home .header {
+                position: relative;
+                width: 100%;
+                padding: 40px 20px;
+                background: url(../images/banner.jpg) bottom center no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+                color: white;
+                font-size: 1.2em;
+            }
+
+            .container .content .home .movieContainer {
+                position: relative;
+                width: 95%;
+                margin: auto;
+            }
+
+                .container .content .home .movieContainer .movieCards {
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    gap: 15px 5px;
+                }
+
+                    .container .content .home .movieContainer .movieCards .movieCard {
+                        position: relative;
+                        width: calc((100% - 5px) / 6);
+                        transition: all 0.2s ease;
+                    }
+
+                        .container .content .home .movieContainer .movieCards .movieCard:hover {
+                            color: var(--bg-dark);
+                            cursor: pointer;
+                            transform: scale(1.05);
+                            z-index: 9;
+                        }
+
+                            .container .content .home .movieContainer .movieCards .movieCard:hover img {
+                                box-shadow: 0 0 10px var(--bg-darker);
+                            }
+
+                        .container .content .home .movieContainer .movieCards .movieCard img {
+                            position: relative;
+                            width: 100%;
+                            height: auto;
+                            border-radius: 10px;
+                        }
+
+
+        .container .content .bgBackDrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100vh;
+            background: white;
+            z-index: 1;
+            filter: blur(5px) brightness(1.1) opacity(0.25);
+            box-shadow: inset -100px 0 40px transparent;
+        }
+
+        .container .content .detail {
+            position: relative;
+            width: 90%;
+            margin: auto;
+            z-index: 2
+        }
+
+            .container .content .detail button {
+                position: fixed;
+                padding: 4px 10px;
+                margin: 20px 0;
+                border: none;
+                border-radius: 4px;
+                background-color: var(--bg-dark);
+                color: white;
+                font-size: 1.05em;
+                z-index: 8;
+            }
+
+                .container .content .detail button a {
+                    color: white;
+                }
+
+            .container .content .detail .noResult {
+                position: relative;
+                width: 100%;
+                display: none;
+            }
+
+            .container .content .detail .result .moviePoster {
+                width: 30%;
+                text-align: center;
+            }
+
+            .container .content .detail .result .movieDescription {
+                width: 70%;
+            }
+
+/* MEDIA QUERIES
+   Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+
+    .nav h1 {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        background: #C70039;
+        background: linear-gradient(to top right, #C70039 0%, #FFF5E0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .container .content .home .movieContainer {
+        position: relative;
+        width: 95%;
+        margin: auto;
+    }
+
+        .container .content .home .movieContainer .movieCards .movieCard {
+            position: relative;
+            width: calc((100% - 5px) / 2);
+            transition: all 0.2s ease;
+        }
+
+            .container .content .home .movieContainer .movieCards .movieCard:hover {
+                color: var(--bg-dark);
+                transform: scale(1);
+                z-index: 9;
+            }
+
+                .container .content .home .movieContainer .movieCards .movieCard:hover img {
+                    box-shadow: 0 0 0px var(--bg-darker);
+                }
+
+            .container .content .home .movieContainer .movieCards .movieCard img {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+            .container .content .home .movieContainer .movieCards .movieCard h4 {
+                position: relative;
+                text-align: center;
+            }
+
+    .container .content .detail .result {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+
+        .container .content .detail .result .moviePoster {
+            width: 90%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .container .content .detail .result .movieDescription {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+    .container .content .bgBackDrop {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%);
+    }
+}
+
+/* Small Devices (Tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+    .container .content .home .movieContainer .movieCards .movieCard {
+        position: relative;
+        width: calc((100% - 5px) / 4);
+        transition: all 0.2s ease;
+    }
+
+    .container .content .detail .result {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+
+        .container .content .detail .result .moviePoster {
+            width: 90%;
+            text-align: center;
+            margin: auto;
+        }
+
+        .container .content .detail .result .movieDescription {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+    .container .content .bgBackDrop {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%);
+    }
+}
+
+/* Medium Devices (Laptops) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .container .content .detail .result {
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+
+        .container .content .detail .result .moviePoster {
+            width: 40%;
+            text-align: center;
+        }
+
+        .container .content .detail .result .movieDescription {
+            width: 60%;
+        }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 993px) and (max-width: 1200px) {
+
+
+    .container .content .detail .result {
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+
+        .container .content .detail .result .moviePoster {
+            width: 30%;
+            text-align: center;
+        }
+
+        .container .content .detail .result .movieDescription {
+            width: 70%;
+        }
+}
+
+/* Extra Large Devices (Large Desktops) */
+@media (min-width: 1201px) {
+    .container .content .detail .result {
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+
+        .container .content .detail .result .moviePoster {
+            width: 30%;
+            text-align: center;
+        }
+
+        .container .content .detail .result .movieDescription {
+            width: 70%;
+        }
 }

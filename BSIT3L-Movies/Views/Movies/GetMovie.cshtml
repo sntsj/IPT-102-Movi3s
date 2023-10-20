@@ -1,17 +1,46 @@
 ﻿@model BSIT3L_Movies.Models.MovieViewModel
+@{
+    ViewData["Title"] = "Movie Detail";
+}
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Movie</title>
-</head>
-<body>
-    <h2>Movie Details</h2>
-    <p>Movie ID: @Model.Id</p>
-    <p>Movie Name: @Model.Name</p>
-    <p>Rating: @Model.Rating</p>
-    <p>Release Year: @Model.ReleaseYear</p>
-    <p>Genre: @Model.Genre</p>
-</body>
-</html>
+    <div class="bgBackDrop" style="
+                                background: url('@Model.PosterPath') center center no-repeat; 
+                                background-size: cover;"></div>
+    
+    <div class="detail">
+        <button><a href="/Home">Go Back</a></button>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="noResult">
+            <h1>Invalid Movie ID.</h1>
+        </div>
+
+        <div class="result" style="padding-bottom: 40px">
+            <div class="moviePoster">
+                <img src="@Model.PosterPath" alt="@Model.Title Poster" style="border-radius: 6px" />
+
+                <h3>Popularity: <span style="font-weight: normal" class="moviePopularity">@Model.Popularity</span></h3>
+                <h3>User Score: <span style="font-weight: normal" class="movieScore">@Model.VoteAverage</span></h3>
+            </div>
+
+            <div class="movieDescription">
+            <h1 class="movieTitle">@Model.Title</h1>
+                <p class="movieReleaseDate">@Model.ReleaseDate</p>
+                <br />
+
+                <h3>Overview:</h3>
+                <br />
+                <p class="movieOverview">@Model.Overview</p>
+                
+                <br />
+
+                <h3>Genre: </h3>
+                <p class="movieGenre" style="text-indent: 15px">@Model.Genre</p>
+            </div>
+        </div>
+    </div>

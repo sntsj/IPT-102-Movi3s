@@ -5,27 +5,34 @@
 }
 
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Rating</th>
-            <th>Release Year</th>
-            <th>Genre</th>
-        </tr>
-    </thead>
-    <tbody>
+<!-- Header -->
+<div class="home">
+    <div class="header">
+        <h1>WELCOME</h1>
+        <p>List of movies to discover. Explore now.</p>
+
+        <br />
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="movieContainer">
+        <h2>Popular Movies</h2>
+        <br />
+        <br />
+
+        <div class="movieCards">  
         @foreach (var movie in Model)
         {
-            <tr>
-                <td>@movie.Id</td>
-                <td ><a href = "/movies/getmovie/@movie.Id" > @movie.Name </a></td>
-                <td>@movie.Rating</td>
-                <td>@movie.ReleaseYear</td>
-                <td>@movie.Genre</td>
-            </tr>
+
+                <div class="movieCard" onclick="location.href = '/movies/getmovie/@movie.Id'">
+                    <img src="@movie.PosterPath" alt="@movie.Title Poster" />
+                    <h4>@movie.Title</h4>
+                </div>
         }
-    </tbody>
-</table>
+        </div>
+    </div>
+</div>
 
